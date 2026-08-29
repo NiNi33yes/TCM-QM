@@ -9,7 +9,7 @@ Parsing, reconstruction, provenance-audit and benchmark code for the TCM-QM quan
 - `verify_rebuild.py` - full-chain reconstruction verification (see REBUILD_PROTOCOL.md in the data release).
 - `generate_data_dictionary.py` - field-level data dictionary and JSON schema generator.
 - `build_figures.py` - Fig. 1-5 and Fig. 7.
-- `build_fig6_r2_comparison.py` - Fig. 6 (machine-learning readiness).
+- `build_fig6_ml_readiness.py` - Fig. 6 (Extra Trees test-set R2, mean +/- SD, grouped-random vs scaffold-held-out).
 - `build_ml_benchmark.py` / `scaffold_split_uncertainty.py` - leakage-controlled ML benchmark (RDKit descriptors, grouped-connectivity and Bemis-Murcko scaffold splits).
 - `audit_all_initial_geometries_pubchem3d.py` / `analyze_full_initial_geometry_audit.py` - PubChem3D starting-geometry provenance audit.
 - `select_orca_version_paired_sample.py` / `compare_orca_versions.py` / `rebuild_orca_input.py` - ORCA-version stratification and input reconstruction.

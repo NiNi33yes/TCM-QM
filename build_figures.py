@@ -18,6 +18,7 @@ Usage:
 """
 from __future__ import annotations
 
+import argparse
 import re
 import sys
 from collections import Counter
@@ -31,12 +32,16 @@ import numpy as np
 import pandas as pd
 from matplotlib.patches import FancyBboxPatch
 
-ROOT = Path(r"D:\Download\TCM-QM-项目总整合包_20260828\CURRENT")
-DATA = ROOT / "02_数据冻结最新版_v5"
+_ap = argparse.ArgumentParser(description="Reproduce TCM-QM manuscript Figures 1-5 from the frozen release.")
+_ap.add_argument("figures", nargs="*", help="figure names to build (default: all)")
+_ap.add_argument("--data", default=".", help="frozen data dir (contains tables/ and audits/)")
+_ap.add_argument("--figdir", default="figures_repro", help="output figure directory")
+_argv = _ap.parse_args()
+DATA = Path(_argv.data)
 # Output to a separate directory so the hand-crafted paper figures in figures/
 # are never overwritten. These regenerated panels carry identical numbers but
 # are not pixel-identical to the authored figures.
-FIGDIR = ROOT / "01_论文最新版_v6" / "figures_repro"
+FIGDIR = Path(_argv.figdir)
 FIGDIR.mkdir(parents=True, exist_ok=True)
 
 # Shared colour palette (teal primary + gold accent, consistent with Fig. 6).
@@ -367,7 +372,7 @@ BUILDERS = {"fig1": fig1, "fig2": fig2, "fig3": fig3, "fig4": fig4, "fig5": fig5
 
 
 def main() -> None:
-    which = sys.argv[1:] or list(BUILDERS)
+    which = _argv.figures or list(BUILDERS)
     for name in which:
         if name not in BUILDERS:
             print(f"unknown figure '{name}' (choose from {', '.join(BUILDERS)})")
