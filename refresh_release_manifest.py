@@ -59,8 +59,8 @@ def main() -> None:
     SIDECAR.write_text(f"{manifest_hash}  files_sha256.csv\n", encoding="ascii")
 
     release_summary = {
-        "release_name": ROOT.name,
-        "release_version": "1.0.0-rc2",
+        "release_name": "TCM-QM",
+        "release_version": "1.0.0",
         "frozen_at": datetime.now(timezone.utc).isoformat(),
         "payload_file_count": len(rows),
         "payload_size_bytes": sum(row["size_bytes"] for row in rows),
