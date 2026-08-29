@@ -178,7 +178,7 @@ def main(source: Path | None = None, output: Path | None = None):
     # error bar collapses to zero. The submission figure, whose scaffold bars
     # carry the 20-seed mean ± SD (gap 0.772 ± 0.070, dipole 0.530 ± 0.074,
     # Gibbs 0.694 ± 0.065, highest-frequency 0.980 ± 0.007), is produced by
-    # code/build_fig6_r2_comparison.py from
+    # code/build_fig6_ml_readiness.py from
     # machine_learning/scaffold_uncertainty/scaffold_split_uncertainty_summary.csv.
     fig, axes = plt.subplots(2, 2, figsize=(12, 9), constrained_layout=True)
     model_colors = {"mean_baseline": "#9CA3AF", "ridge_2d": "#0F766E", "extra_trees_morgan2_2d": "#D97706"}
