@@ -139,13 +139,13 @@ def build(master: Path, csv_output: Path, json_output: Path) -> None:
             "unit": UNITS.get(field, "dimensionless" if field_type != "string" else "not applicable"),
             "origin": origin(field), "required": not field.startswith("pubchem_") or missing == 0,
             "missing_count": missing,
-            "missing_value_rule": "empty CSV cell; no imputation" if missing else "not missing in release 1.0.0-rc2",
+            "missing_value_rule": "empty CSV cell; no imputation" if missing else "not missing in release 1.1.0-rc1",
             "description": DESCRIPTIONS.get(field, field.replace("pubchem_", "PubChem ").replace("_", " ").capitalize() + "."),
         })
     csv_output.parent.mkdir(parents=True, exist_ok=True)
     with csv_output.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(dictionary[0])); writer.writeheader(); writer.writerows(dictionary)
-    schema = {"title": "TCM-QM master-table schema", "release_version": "1.0.0-rc2",
+    schema = {"title": "TCM-QM master-table schema", "release_version": "1.1.0-rc1",
               "records": len(rows), "fields": len(fields),
               "missing_values": "Empty CSV cells denote unavailable optional metadata; values are not imputed.",
               "columns": dictionary}

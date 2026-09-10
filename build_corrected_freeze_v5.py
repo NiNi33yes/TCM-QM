@@ -36,6 +36,6 @@ with (out/'manifests'/'files_sha256.csv').open('w',encoding='utf-8-sig',newline=
     w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
 mh=hashlib.sha256((out/'manifests'/'files_sha256.csv').read_bytes()).hexdigest()
 (out/'manifests'/'files_sha256.csv.sha256').write_text(f'{mh}  files_sha256.csv\n',encoding='ascii')
-summary={'release_name':out.name,'release_version':'1.0.0-rc2','frozen_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'payload_file_count':len(rows),'payload_size_bytes':sum(r['size_bytes'] for r in rows),'hash_algorithm':'SHA-256','structure_count':len(list((out/'structures_xyz').glob('*.xyz'))),'recovered_dft_xyz_count':154,'remaining_placeholder_xyz_count':0}
+summary={'release_name':out.name,'release_version':'1.1.0-rc1','frozen_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'payload_file_count':len(rows),'payload_size_bytes':sum(r['size_bytes'] for r in rows),'hash_algorithm':'SHA-256','structure_count':len(list((out/'structures_xyz').glob('*.xyz'))),'recovered_dft_xyz_count':154,'remaining_placeholder_xyz_count':0}
 (out/'manifests'/'release_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
 print(json.dumps(summary,indent=2))

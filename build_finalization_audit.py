@@ -296,7 +296,7 @@ Twelve executable checks cover orbital gaps, Hartree/eV and Hartree/kcal convers
 This package freezes the locally available publication data and validation artifacts. Raw ORCA OUT/GBW files are not included because they are held on the remote server and were not present in the local release workspace. A public DOI, author list, repository URL, and final license remain publication metadata decisions; placeholders are not fabricated here.
 """
     (ROOT / "README.md").write_text(text, encoding="utf-8")
-    (ROOT / "CITATION.cff").write_text("cff-version: 1.2.0\ntitle: 'TCM-QM: Quantum-chemical properties of 3,196 compounds associated with traditional Chinese medicine'\ntype: dataset\nversion: '1.0.0-rc2'\ndate-released: '2026-08-28'\nmessage: 'Authors and DOI must be completed before public deposition.'\n", encoding="utf-8")
+    (ROOT / "CITATION.cff").write_text("cff-version: 1.2.0\ntitle: 'TCM-QM: Quantum-chemical properties of 3,196 compounds associated with traditional Chinese medicine'\ntype: dataset\nversion: '1.1.0-rc1'\ndate-released: '2026-08-28'\nmessage: 'Authors and DOI must be completed before public deposition.'\n", encoding="utf-8")
     (ROOT / "LICENSE_PENDING.txt").write_text("No public reuse license has been selected in the available project records. Select and add the approved license before public deposition. This notice is not a license.\n", encoding="utf-8")
 
 
@@ -311,7 +311,7 @@ def manifest() -> dict:
     df = pd.DataFrame(rows)
     write_csv(df, ROOT / "manifests" / "files_sha256.csv")
     summary = {
-        "release_name": ROOT.name, "release_version": "1.0.0-rc2", "frozen_at": datetime.now(timezone.utc).isoformat(),
+        "release_name": ROOT.name, "release_version": "1.1.0-rc1", "frozen_at": datetime.now(timezone.utc).isoformat(),
         "payload_file_count": len(df), "payload_size_bytes": int(df.size_bytes.sum()),
         "manifest_scope": "all files except files inside manifests/", "hash_algorithm": "SHA-256",
     }

@@ -1,25 +1,58 @@
 # TCM-QM code
 
-Parsing, reconstruction, provenance-audit and benchmark code for the TCM-QM quantum-chemical dataset (3,196 PubChem-indexed compounds, B3LYP-D3BJ/def2-TZVP, ORCA 6.0.1 / 6.1.1).
+Version 1.1.0 contains the parsing, reconstruction, provenance-audit, validation, figure-generation and machine-learning utilities used for the provenance-corrected TCM-QM data release.
 
-## Contents
-
-- `parse_orca_out.py` - ORCA output parser (record-level fields, flags, versions).
-- `build_master.py` - master-table assembly from parsed records.
-- `verify_rebuild.py` - full-chain reconstruction verification (see REBUILD_PROTOCOL.md in the data release).
-- `generate_data_dictionary.py` - field-level data dictionary and JSON schema generator.
-- `build_figures.py` - Fig. 1-5 and Fig. 7.
-- `build_fig6_ml_readiness.py` - Fig. 6 (Extra Trees test-set R2, mean +/- SD, grouped-random vs scaffold-held-out).
-- `build_ml_benchmark.py` / `scaffold_split_uncertainty.py` - leakage-controlled ML benchmark (RDKit descriptors, grouped-connectivity and Bemis-Murcko scaffold splits).
-- `audit_all_initial_geometries_pubchem3d.py` / `analyze_full_initial_geometry_audit.py` - PubChem3D starting-geometry provenance audit.
-- `select_orca_version_paired_sample.py` / `compare_orca_versions.py` / `rebuild_orca_input.py` - ORCA-version stratification and input reconstruction.
-- `refresh_release_manifest.py` - SHA-256 release manifest generation.
-- `select_conformer_sample.py` / `generate_conformers.py` / `compare_conformers.py` - conformer-sensitivity utilities.
+The corresponding data release contains 3,196 PubChem-indexed molecular records calculated at the B3LYP-D3BJ/def2-TZVP level with ORCA 6.0.1 or 6.1.1. The code is licensed under the MIT License. ORCA binaries and third-party datasets are not redistributed by this repository.
 
 ## Environment
 
-Python 3.9; dependencies in `environment.yml` (pandas, numpy, matplotlib, rdkit).
+Create the pinned Python 3.11 environment:
 
-## License
+```bash
+conda env create -f environment.yml
+conda activate tcm-qm-release
+```
 
-MIT - see `LICENSE_MIT.txt`.
+The environment includes NumPy, pandas, SciPy, scikit-learn, statsmodels, matplotlib, RDKit, NetworkX and openpyxl. ORCA is required only for new quantum-chemical calculations, not for inspecting the frozen release or rerunning table-level audits.
+
+## Main commands
+
+```bash
+python parse_orca_out.py RAW_OUT_DIRECTORY PARSED_OUTPUT_DIRECTORY
+
+python generate_data_dictionary.py DATA_RELEASE/tables/tcm_qm_master.csv rebuilt/data_dictionary.csv rebuilt/schema.json
+
+python build_ml_benchmark.py DATA_RELEASE/tables/tcm_qm_master.csv rebuilt/machine_learning
+python -m unittest test_build_ml_benchmark.py
+
+python build_figures_v1_1.py DATA_RELEASE rebuilt/figures --vector-output-dir rebuilt/figures_vector
+```
+
+See `REPRODUCIBILITY.md` and `REBUILD_PROTOCOL.md` for inputs, boundaries and reconstruction checks.
+
+## Code map
+
+- `parse_orca_out.py` extracts released ORCA fields and calculation flags.
+- `build_master.py` assembles the CID-indexed master table from parsed calculations and a frozen PubChem table.
+- `build_finalization_audit.py` reconstructs selection decisions from supplied source ledgers.
+- `verify_rebuild.py` compares reconstructed output with the frozen release.
+- `generate_data_dictionary.py` builds the field dictionary and JSON schema.
+- `audit_all_initial_geometries_pubchem3d.py` and `analyze_full_initial_geometry_audit.py` implement the PubChem3D starting-geometry audit.
+- `build_ionization_state_audit.py` classifies internally charge-separated SMILES representations.
+- `integrate_nist_cccbdb_validation.py` rebuilds the NIST CCCBDB dipole-validation artifacts from deposited audit inputs.
+- `build_ml_benchmark.py`, `scaffold_split_uncertainty.py` and `build_fig6_r2_comparison.py` implement the reuse benchmark.
+- `select_conformer_sample.py`, `generate_conformers.py` and `compare_conformers.py` support conformer-sensitivity analysis.
+- `select_orca_version_paired_sample.py`, `rebuild_orca_input.py` and `compare_orca_versions.py` support a paired ORCA-version study; the released dataset does not claim that this study was completed.
+- `build_figures_v1_1.py` rebuilds the current data-driven manuscript figures.
+- `refresh_release_manifest.py` creates SHA-256 payload manifests.
+
+## Reproducibility boundary
+
+Exact reconstruction requires the inputs named in `REBUILD_PROTOCOL.md`, including archived ORCA outputs, frozen PubChem metadata and the source ledgers used for selection and provenance adjudication. The data release records which upstream artifacts are deposited and which remain unavailable. A successful checksum comparison establishes file identity; it does not establish experimental accuracy, conformer completeness or interchangeability between ORCA versions.
+
+## Versioning
+
+- `v1.0.0` corresponds to the initial public code archive.
+- `v1.1.0` corresponds to the provenance-corrected data-processing and validation code described here.
+
+Use the immutable tagged release or its archived software DOI in reproducible work rather than the moving `main` branch.
