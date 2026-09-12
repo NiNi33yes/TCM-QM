@@ -1,6 +1,6 @@
 # TCM-QM code
 
-Version 1.1.0 contains the parsing, reconstruction, provenance-audit, validation, figure-generation and machine-learning utilities used for the provenance-corrected TCM-QM data release.
+Version 1.1.1 contains the parsing, reconstruction, provenance-audit, validation, figure-generation and machine-learning utilities used for the provenance-corrected TCM-QM data release. Version 1.1.1 corrects the selection-count visualization and does not change the molecular dataset.
 
 The corresponding data release contains 3,196 PubChem-indexed molecular records calculated at the B3LYP-D3BJ/def2-TZVP level with ORCA 6.0.1 or 6.1.1. The code is licensed under the MIT License. ORCA binaries and third-party datasets are not redistributed by this repository.
 
@@ -46,6 +46,8 @@ See `REPRODUCIBILITY.md` and `REBUILD_PROTOCOL.md` for inputs, boundaries and re
 - `build_figures_v1_1.py` rebuilds the current data-driven manuscript figures.
 - `refresh_release_manifest.py` creates SHA-256 payload manifests.
 
+`build_corrected_freeze_v5.py` is retained only as provenance for the historical recovery of 154 XYZ files. It is not the supported release-building entry point. `build_fig6_r2_comparison.py` summarizes the deposited run-level machine-learning results and is used by the current figure workflow; it is not a superseded copy of `build_figures_v1_1.py`.
+
 ## Reproducibility boundary
 
 Exact reconstruction requires the inputs named in `REBUILD_PROTOCOL.md`, including archived ORCA outputs, frozen PubChem metadata and the source ledgers used for selection and provenance adjudication. The data release records which upstream artifacts are deposited and which remain unavailable. A successful checksum comparison establishes file identity; it does not establish experimental accuracy, conformer completeness or interchangeability between ORCA versions.
@@ -54,5 +56,6 @@ Exact reconstruction requires the inputs named in `REBUILD_PROTOCOL.md`, includi
 
 - `v1.0.0` corresponds to the initial public code archive.
 - `v1.1.0` corresponds to the provenance-corrected data-processing and validation code described here.
+- `v1.1.1` corrects Figure 1 so that connected stages all use calculation-record counts (6,948 to 4,012 to 3,196); it makes no change to the released molecular records or provenance edges.
 
 Use the immutable tagged release or its archived software DOI in reproducible work rather than the moving `main` branch.

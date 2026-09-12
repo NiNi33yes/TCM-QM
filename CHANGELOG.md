@@ -2,6 +2,18 @@
 
 All notable changes to the public TCM-QM processing and validation code are documented here.
 
+## v1.1.1 — 2026-09-12
+
+### Corrected
+
+- Corrected Figure 1 to use calculation-record counts consistently across its connected selection stages: 6,948 candidate records, 4,012 quality-qualified records and 3,196 released records.
+- Corrected the quality-adjudication reduction to 2,936 records and the qualified-record deduplication reduction to 816 records. The 6,106 normalized unique CIDs remain a separately reported identity count and are no longer subtracted from a calculation-record count.
+
+### Scope
+
+- No molecular record, quantum-chemical value, XYZ structure, TCMSP provenance record or herb–CID edge was changed.
+- Version 1.1.1 updates code and documentation only; the v1.1.0 tag remains available as historical provenance.
+
 ## v1.1.0 — 2026-09-10
 
 This code release accompanies the provenance-corrected TCM-QM data release v1.1.0.

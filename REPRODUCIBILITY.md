@@ -12,17 +12,23 @@ licensed/local ORCA installation is required only for new quantum-chemical calcu
 ## Commands using frozen or externally supplied inputs
 
 ```text
-python code/generate_data_dictionary.py tables/tcm_qm_master.csv tables/data_dictionary.csv tables/schema.json
-python code/parse_orca_out.py RAW_OUT_DIRECTORY PARSED_OUTPUT_DIRECTORY
-python code/build_ml_benchmark.py tables/tcm_qm_master.csv machine_learning_rebuilt
-python -m unittest code/test_build_ml_benchmark.py
-python code/audit_all_initial_geometries_pubchem3d.py PROJECT_ROOT
+python generate_data_dictionary.py tables/tcm_qm_master.csv tables/data_dictionary.csv tables/schema.json
+python parse_orca_out.py RAW_OUT_DIRECTORY PARSED_OUTPUT_DIRECTORY
+python build_ml_benchmark.py tables/tcm_qm_master.csv machine_learning_rebuilt
+python -m unittest test_build_ml_benchmark.py
+python audit_all_initial_geometries_pubchem3d.py PROJECT_ROOT
+python build_figures_v1_1.py DATA_RELEASE rebuilt/figures --vector-output-dir rebuilt/figures_vector
 ```
 
 `build_finalization_audit.py --help` lists all required source ledgers and paths. It no
 longer contains machine-specific `D:\` defaults. The historical v5 correction script is
 retained as provenance for the 154 recovered XYZ replacements; it is not the supported
 entry point for a new release.
+
+The Figure 1 generator asserts both released selection identities before plotting:
+6,948 - 4,012 = 2,936 quality exclusions and 4,012 - 3,196 = 816 qualified-record
+deduplications. The 6,106 normalized unique CIDs are reported separately because a
+unique-CID count cannot be subtracted from a calculation-record count.
 
 ## Reproducibility boundary
 
