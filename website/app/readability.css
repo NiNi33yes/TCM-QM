@@ -1,0 +1,122 @@
+/* Readability layer: larger type without changing the established visual system. */
+html { font-size: 17px; }
+body { font-size: 17px; line-height: 1.72; }
+
+.research-notice { min-height: 34px; height: auto; padding: 6px 16px; font-size: 12px; }
+.brand-seal small { font-size: 9px; }
+.brand-name b { font-size: 19px; }
+.brand-name small { font-size: 11px; }
+.site-header nav a { font-size: 15px; }
+.release-pill { font-size: 13px; }
+
+.eyebrow,
+.section-heading > div > p,
+.evidence-path > p,
+.search-kicker span,
+.property-grid small { font-size: 11px; }
+.hero-lead { font-size: 19px; }
+.hero-actions a { font-size: 14px; }
+.evidence-path li strong { font-size: 15px; }
+.evidence-path li small,
+.dataset-vitals span,
+.dataset-vitals > p { font-size: 12px; }
+.section-heading > p,
+.page-intro > p:last-child { font-size: 16px; line-height: 1.8; }
+
+.search-bar input,
+.submit-search { font-size: 14px; }
+.search-examples span,
+.search-examples button,
+.result-toolbar span,
+.toolbar-fields label { font-size: 12px; }
+.toolbar-fields select { min-height: 38px; font-size: 13px; }
+.formula-tile { font-size: 14px; }
+.status-label { font-size: 11px; }
+.compound-card h3 { font-size: 15px; }
+.compound-card > p,
+.compound-card dt { font-size: 12px; }
+.compound-card dd { font-size: 14px; }
+.compound-card footer { font-size: 12px; }
+.property-grid p { font-size: 13px; line-height: 1.7; }
+
+.breadcrumb { font-size: 12px; }
+.compound-formula-art small,
+.compound-title > p,
+.compound-title > div span,
+.detail-status small { font-size: 11px; }
+.record-nav nav a,
+.pubchem-link { font-size: 12px; }
+.record-section-title small,
+.headline-properties small,
+.headline-properties span,
+.definition-grid dt,
+.property-list dt,
+.energy-diagram div small,
+.energy-diagram span small { font-size: 11px; }
+.definition-grid dd,
+.property-list dd { font-size: 14px; line-height: 1.65; }
+.section-note,
+.caveat { font-size: 12px; line-height: 1.7; }
+.record-pager a { font-size: 12px; }
+
+.graph-search small,
+.graph-controls > small,
+.graph-insight > small,
+.graph-canvas header small,
+.graph-breadcrumb > span { font-size: 11px; }
+.graph-search input,
+.graph-search button { font-size: 14px; }
+.graph-boundary { font-size: 12px; line-height: 1.65; }
+.graph-controls button { font-size: 13px; }
+.graph-controls dt,
+.graph-canvas header a,
+.graph-control-hint { font-size: 11px; }
+.graph-tools button,
+.graph-legend { font-size: 11px; }
+.graph-breadcrumb button { font-size: 13px; }
+.edge-evidence > span,
+.edge-evidence > small,
+.edge-evidence p,
+.edge-evidence code { font-size: 11px; }
+.edge-evidence > b { font-size: 13px; }
+.focus-identity span,
+.focus-metrics span,
+.focus-metrics small,
+.graph-insight > p,
+.graph-insight > a { font-size: 12px; }
+.graph-mobile-list button span { font-size: 11px; }
+
+.method-summary small,
+.method-summary span,
+.about-numbers span { font-size: 11px; }
+.quality-levels p,
+.text-page li { font-size: 15px; line-height: 1.8; }
+.text-page article > section p { font-size: 16px; line-height: 1.85; }
+
+.download-grid small { font-size: 11px; }
+.download-grid p,
+.download-note p { font-size: 14px; line-height: 1.75; }
+.download-grid code { font-size: 11px; line-height: 1.55; }
+.download-grid a,
+.download-note a { font-size: 12px; }
+
+.structure-viewers header small,
+.structure-viewers header em,
+.structure-viewers article > footer { font-size: 10px; }
+.viewer-buttons button { min-height: 34px; font-size: 11px; }
+.viewer-error,
+.xyz-download { font-size: 12px; }
+
+.site-footer p,
+.site-footer nav { font-size: 11px; }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .site-header { height: 72px; }
+  .brand-name b { font-size: 17px; }
+  .hero-lead { font-size: 17px; line-height: 1.8; }
+  .compound-card h3 { white-space: normal; }
+  .graph-mobile-list button { min-height: 54px; }
+  .graph-mobile-list button b { font-size: 14px; }
+  .record-section { padding: 22px; }
+}

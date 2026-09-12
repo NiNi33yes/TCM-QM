@@ -30,6 +30,21 @@ python build_figures_v1_1.py DATA_RELEASE rebuilt/figures --vector-output-dir re
 
 See `REPRODUCIBILITY.md` and `REBUILD_PROTOCOL.md` for inputs, boundaries and reconstruction checks.
 
+## Web application
+
+The complete source of the public TCM-QM Atlas is provided in `website/`. It includes the searchable compound catalogue, molecular detail pages, 2D and 3D structure viewers, the evidence-aware herb–compound graph, download surfaces, data-generation scripts and regression tests.
+
+The web application requires Node.js 22.13.0 or newer:
+
+```bash
+cd website
+npm install
+npm run lint
+npm test
+```
+
+The bundled website data correspond to the provenance-corrected `v1.1.0-rc1` candidate data freeze: 3,196 compounds, 495 herb entities, 16,918 unique herb–CID edges and 16,930 accepted source-evidence rows. Herb–compound edges represent documented TCMSP source associations and must not be interpreted as evidence of efficacy, abundance, exposure or target engagement.
+
 ## Code map
 
 - `parse_orca_out.py` extracts released ORCA fields and calculation flags.
@@ -45,6 +60,7 @@ See `REPRODUCIBILITY.md` and `REBUILD_PROTOCOL.md` for inputs, boundaries and re
 - `select_orca_version_paired_sample.py`, `rebuild_orca_input.py` and `compare_orca_versions.py` support a paired ORCA-version study; the released dataset does not claim that this study was completed.
 - `build_figures_v1_1.py` rebuilds the current data-driven manuscript figures.
 - `refresh_release_manifest.py` creates SHA-256 payload manifests.
+- `website/` contains the complete TCM-QM Atlas source, static molecular structures, machine-readable downloads and website-specific tests.
 
 `build_corrected_freeze_v5.py` is retained only as provenance for the historical recovery of 154 XYZ files. It is not the supported release-building entry point. `build_fig6_r2_comparison.py` summarizes the deposited run-level machine-learning results and is used by the current figure workflow; it is not a superseded copy of `build_figures_v1_1.py`.
 

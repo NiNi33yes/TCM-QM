@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      width: 1536px;
+      height: 1024px;
+      overflow: hidden;
+      background: #f7f4ec;
+      color: #173d32;
+      font-family: "Microsoft YaHei", sans-serif;
+    }
+    .top {
+      height: 30px;
+      background: #173d32;
+    }
+    .wrap {
+      height: 994px;
+      padding: 78px 110px;
+      position: relative;
+    }
+    .seal {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #b64b35;
+      color: white;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      font: 700 24px/1.05 Georgia;
+    }
+    .seal small {
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-top: 7px;
+    }
+    .brand {
+      position: absolute;
+      top: 86px;
+      left: 215px;
+      font: 700 24px Georgia;
+    }
+    .brand span {
+      display: block;
+      margin-top: 8px;
+      font: 700 10px sans-serif;
+      letter-spacing: 4px;
+      color: #778079;
+    }
+    .eyebrow {
+      margin-top: 125px;
+      color: #b64b35;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+    .title {
+      margin: 28px 0 24px;
+      font:
+        600 78px/1.18 Georgia,
+        "Songti SC",
+        serif;
+      letter-spacing: -3px;
+    }
+    .title em {
+      font-style: normal;
+      color: #b64b35;
+      border-bottom: 7px solid #dbc47f;
+    }
+    .lead {
+      width: 830px;
+      font-size: 23px;
+      line-height: 1.8;
+      color: #667168;
+    }
+    .path {
+      position: absolute;
+      right: 105px;
+      top: 265px;
+      width: 380px;
+      background: #fffefb;
+      border: 1px solid #ddd8c9;
+      padding: 35px;
+      box-shadow: 15px 15px #dfe8dc;
+    }
+    .path small {
+      color: #b64b35;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .path h2 {
+      font:
+        600 27px/1.5 Georgia,
+        "Songti SC",
+        serif;
+    }
+    .path div {
+      padding: 19px 0;
+      border-top: 1px solid #ddd8c9;
+      font-size: 18px;
+    }
+    .path b {
+      color: #c79a3b;
+      margin: 0 8px;
+    }
+    .stats {
+      position: absolute;
+      left: 110px;
+      right: 110px;
+      bottom: 76px;
+      height: 125px;
+      background: #173d32;
+      color: white;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stats div {
+      padding: 27px 34px;
+      border-right: 1px solid #45675a;
+    }
+    .stats strong {
+      font: 500 34px Georgia;
+      display: block;
+    }
+    .stats span {
+      color: #b8cdc3;
+      font-size: 13px;
+      margin-top: 8px;
+      display: block;
+    }
+  </style>
+  <div class="top"></div>
+  <main class="wrap">
+    <div class="seal">本草<small>QM</small></div>
+    <div class="brand">本草量化图谱<span>TCM-QM ATLAS</span></div>
+    <p class="eyebrow">TRADITIONAL MEDICINE × QUANTUM CHEMISTRY</p>
+    <h1 class="title">
+      从一味本草，抵达<br />一个分子的 <em>量子化学性质</em>
+    </h1>
+    <p class="lead">
+      以中药来源为线索，在统一理论水平下检索 3,196
+      个分子的电子结构、热化学与振动性质。
+    </p>
+    <aside class="path">
+      <small>数据关系</small>
+      <h2>药材来源 <b>→</b> 化学成分 <b>→</b> DFT 性质</h2>
+      <div>3,196 个唯一 PubChem CID</div>
+      <div>495 味 TCMSP 药材</div>
+      <div>16,918 条直接来源关系</div>
+    </aside>
+    <section class="stats">
+      <div><strong>3,196</strong><span>唯一分子</span></div>
+      <div><strong>3,191</strong><span>无虚频结构</span></div>
+      <div><strong>495</strong><span>药材实体</span></div>
+      <div><strong>16,918</strong><span>唯一来源边</span></div>
+    </section>
+  </main>
+</html>

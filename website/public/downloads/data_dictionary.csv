@@ -1,0 +1,80 @@
+position,field,type,unit,origin,required,missing_count,missing_value_rule,description
+1,cid,string,not applicable,release assembly,True,0,not missing in release 1.1.0-rc1,Primary record key; PubChem Compound identifier stored as text.
+2,source_file,string,not applicable,release assembly,True,0,not missing in release 1.1.0-rc1,Archived ORCA output filename used for extraction.
+3,file_size_bytes,integer,byte,release assembly,True,0,not missing in release 1.1.0-rc1,"Byte size of the archived source OUT file; an integrity/provenance field, not a molecular descriptor."
+4,orca_version,string,not applicable,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,ORCA program version reported by the calculation.
+5,normal_termination,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,1 when the ORCA normal-termination marker is present; otherwise 0.
+6,optimization_converged,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,1 when the geometry-optimization convergence marker is present; otherwise 0.
+7,method_keywords,string,not applicable,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,ORCA simple-input keyword line preserved from the archived calculation.
+8,basis,string,not applicable,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Parsed orbital basis-set label.
+9,charge,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Net molecular charge used in the calculation.
+10,multiplicity,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Spin multiplicity used in the calculation.
+11,atom_count,integer,dimensionless,derived from ORCA Cartesian atom list,True,0,not missing in release 1.1.0-rc1,"Number of atoms, including hydrogen, in the calculated Cartesian atom list."
+12,heavy_atom_count,integer,dimensionless,derived from ORCA Cartesian atom list,True,0,not missing in release 1.1.0-rc1,Number of non-hydrogen atoms in the calculated Cartesian atom list.
+13,element_count,integer,dimensionless,derived from ORCA Cartesian atom list,True,0,not missing in release 1.1.0-rc1,Number of distinct chemical elements in the calculated atom list.
+14,molecular_formula,string,not applicable,derived from ORCA Cartesian atom list,True,0,not missing in release 1.1.0-rc1,Formula derived from the calculated atom list; formal charge is stored separately.
+15,molecular_mass_amu,number,u,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Molecular mass calculated from the ORCA atom list in unified atomic mass units; not the PubChem average molecular weight.
+16,electron_count,number,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Integrated ORCA electron count; small non-integer deviations reflect numerical precision.
+17,final_electronic_energy_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Last final single-point electronic energy from the converged calculation. Retained as the derivation basis for the thermochemical fields; not a primary output descriptor.
+18,zpe_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Zero-point vibrational energy from the final harmonic-frequency analysis.
+19,zpe_kcal_mol,number,kcal mol-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Zero-point vibrational energy converted from hartree to kcal mol-1.
+20,thermal_vibrational_correction_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Finite-temperature vibrational contribution to the thermal-energy correction at 298.15 K.
+21,thermal_rotational_correction_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Rotational contribution to the thermal-energy correction at 298.15 K.
+22,thermal_translational_correction_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Translational contribution to the thermal-energy correction at 298.15 K.
+23,total_thermal_correction_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Sum of zero-point and finite-temperature thermal corrections used by ORCA.
+24,total_thermal_energy_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Final electronic energy plus the total thermal-energy correction at 298.15 K.
+25,enthalpy_correction_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Thermal enthalpy correction at 298.15 K and 1 atm.
+26,total_enthalpy_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Final electronic energy plus the enthalpy correction at 298.15 K and 1 atm; do not rank across different stoichiometries as a stability score.
+27,electronic_entropy_term_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Electronic contribution to T*S reported by ORCA at 298.15 K.
+28,vibrational_entropy_term_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Vibrational contribution to T*S using ORCA QRRHO treatment with a 100 cm-1 reference frequency.
+29,rotational_entropy_term_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Rotational contribution to T*S at 298.15 K and 1 atm.
+30,translational_entropy_term_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Translational contribution to T*S at 298.15 K and 1 atm.
+31,final_entropy_term_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,"Total T*S term reported by ORCA, expressed as energy in hartree rather than entropy per kelvin."
+32,final_entropy_term_kcal_mol,number,kcal mol-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Total T*S term converted to kcal mol-1; this is not an entropy value in cal mol-1 K-1.
+33,gibbs_correction_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Thermal Gibbs free-energy correction at 298.15 K and 1 atm.
+34,final_gibbs_free_energy_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Final electronic energy plus the Gibbs correction; a gas-phase within-protocol quantity not directly comparable across different stoichiometries.
+35,homo_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Highest occupied Kohn-Sham orbital energy from the final orbital-energy block.
+36,homo_ev,number,eV,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Highest occupied Kohn-Sham orbital energy converted to electronvolt.
+37,lumo_eh,number,Eh,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Lowest unoccupied Kohn-Sham orbital energy from the final orbital-energy block.
+38,lumo_ev,number,eV,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Lowest unoccupied Kohn-Sham orbital energy converted to electronvolt.
+39,homo_lumo_gap_eh,number,Eh,derived from parsed ORCA values,True,0,not missing in release 1.1.0-rc1,LUMO minus HOMO Kohn-Sham orbital-energy difference in hartree; not an experimental optical or quasiparticle gap.
+40,homo_lumo_gap_ev,number,eV,derived from parsed ORCA values,True,0,not missing in release 1.1.0-rc1,LUMO minus HOMO Kohn-Sham orbital-energy difference in eV; not an experimental optical or quasiparticle gap.
+41,dipole_x_au,number,a.u.,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Cartesian x component of the gas-phase molecular dipole in atomic units; orientation dependent.
+42,dipole_y_au,number,a.u.,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Cartesian y component of the gas-phase molecular dipole in atomic units; orientation dependent.
+43,dipole_z_au,number,a.u.,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Cartesian z component of the gas-phase molecular dipole in atomic units; orientation dependent.
+44,dipole_magnitude_au,number,a.u.,derived from parsed ORCA values,True,0,not missing in release 1.1.0-rc1,Rotation-invariant magnitude of the gas-phase molecular dipole in atomic units.
+45,dipole_magnitude_debye,number,D,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Rotation-invariant magnitude of the gas-phase molecular dipole in debye; not a solution-phase measurement.
+46,rot_const_a_cm1,number,cm-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Principal rotational constant A in reciprocal centimetres from the optimized geometry.
+47,rot_const_b_cm1,number,cm-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Principal rotational constant B in reciprocal centimetres from the optimized geometry.
+48,rot_const_c_cm1,number,cm-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Principal rotational constant C in reciprocal centimetres from the optimized geometry.
+49,rot_const_a_mhz,number,MHz,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Principal rotational constant A in MHz from the optimized geometry.
+50,rot_const_b_mhz,number,MHz,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Principal rotational constant B in MHz from the optimized geometry.
+51,rot_const_c_mhz,number,MHz,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Principal rotational constant C in MHz from the optimized geometry.
+52,frequency_count,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Number of parsed harmonic vibrational modes in the final frequency block. Retained in the frozen table; not a primary output descriptor.
+53,imaginary_frequency_count,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Number of parsed negative harmonic frequencies; use zero to construct the strict positive-curvature subset. Retained in the frozen table; not a primary output descriptor.
+54,lowest_frequency_cm1,number,cm-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Lowest signed harmonic frequency; negative values denote retained imaginary modes. Retained in the frozen table; not a primary output descriptor.
+55,lowest_positive_frequency_cm1,number,cm-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Smallest strictly positive harmonic frequency. Retained in the frozen table; not a primary output descriptor.
+56,highest_frequency_cm1,number,cm-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Largest parsed harmonic vibrational frequency. Retained in the frozen table; not a primary output descriptor.
+57,ir_peak_count,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Number of parsed modes with an IR-intensity entry in the final spectrum block. Retained in the frozen table; not a primary output descriptor.
+58,max_ir_intensity_km_mol,number,km mol-1,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,Maximum parsed harmonic IR intensity among the reported modes. Retained in the frozen table; not a primary output descriptor.
+59,runtime_seconds,number,s,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,"Elapsed wall-clock runtime reported by ORCA; depends on hardware, process count, system load and software version."
+60,warning_count,integer,dimensionless,parsed from ORCA output,True,0,not missing in release 1.1.0-rc1,"Total parsed ORCA warning occurrences; repeated messages are counted, not unique warning types."
+61,pubchem_CID,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,CID returned by the frozen PubChem metadata snapshot.
+62,pubchem_Title,string,not applicable,PubChem frozen metadata snapshot,False,20,empty CSV cell; no imputation,PubChem record title from the frozen metadata snapshot; optional and not used as the primary key.
+63,pubchem_IUPACName,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,PubChem IUPAC name from the frozen metadata snapshot.
+64,pubchem_MolecularFormula,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,"Molecular formula returned by PubChem, including formal-charge notation when supplied."
+65,pubchem_MolecularWeight,number,g mol-1,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Average molecular weight returned by PubChem.
+66,pubchem_ExactMass,number,Da,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Exact mass returned by PubChem.
+67,pubchem_MonoisotopicMass,number,Da,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Monoisotopic mass returned by PubChem.
+68,pubchem_Charge,integer,dimensionless,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Formal charge returned by PubChem and used for identity-consistency auditing.
+69,pubchem_SMILES,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,PubChem SMILES from the frozen metadata snapshot.
+70,pubchem_ConnectivitySMILES,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,PubChem connectivity SMILES used for connectivity-grouped splitting.
+71,pubchem_InChI,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,PubChem International Chemical Identifier.
+72,pubchem_InChIKey,string,not applicable,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,PubChem full InChIKey used for exact-identity uniqueness checks.
+73,pubchem_XLogP,number,dimensionless,PubChem frozen metadata snapshot,False,3,empty CSV cell; no imputation,PubChem XLogP annotation from the frozen snapshot; optional and not imputed.
+74,pubchem_TPSA,number,A2,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,PubChem topological polar surface area in square angstroms.
+75,pubchem_Complexity,number,dimensionless,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,"PubChem complexity score; use as a database annotation, not a quantum-chemical descriptor."
+76,pubchem_HBondDonorCount,integer,dimensionless,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Hydrogen-bond donor count returned by PubChem.
+77,pubchem_HBondAcceptorCount,integer,dimensionless,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Hydrogen-bond acceptor count returned by PubChem.
+78,pubchem_RotatableBondCount,integer,dimensionless,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Rotatable-bond count returned by PubChem.
+79,pubchem_HeavyAtomCount,integer,dimensionless,PubChem frozen metadata snapshot,True,0,not missing in release 1.1.0-rc1,Heavy-atom count returned by PubChem for identity and consistency checks.

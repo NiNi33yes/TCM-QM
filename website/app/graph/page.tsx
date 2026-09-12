@@ -1,0 +1,2 @@
+import {GraphExplorer} from "../components/GraphExplorer";import {SiteFooter,SiteHeader} from "../components/SiteChrome";
+export default async function Graph({searchParams}:{searchParams:Promise<{cid?:string}>}){const {cid}=await searchParams;return <><SiteHeader active="graph"/><main id="main-content" className="graph-page"><section className="page-intro"><p className="eyebrow">RELATIONSHIP EXPLORER</p><h1>从药材到分子性质，<br/><em>沿证据路径探索</em></h1><p>浏览药材—成分的真实拓扑，点击成分反向展开共享药材，并在同一视图核查量子性质、匹配方法与来源定位。</p></section><GraphExplorer initialCid={cid}/></main><SiteFooter/></>}
