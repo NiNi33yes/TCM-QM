@@ -53,10 +53,13 @@ def fig1():
     flow=pd.read_csv(TABLES/'selection_flow_summary.csv',encoding='utf-8-sig')
     f=dict(zip(flow.step_id,flow.record_count))
     fig=plt.figure(figsize=(7.15,5.1)); gs=fig.add_gridspec(2,2,hspace=.48,wspace=.40)
-    stage_labels=['Candidate','Normalized','Qualified','Released']
-    values=np.array([f['F0'],f['F0b'],f['F4'],f['F6']],dtype=float)
-    x=np.arange(4)
-    stage_colors=[LILAC,'#9D87BC',TEAL,'#69A9A8']
+    # Every connected stage counts calculation records, not distinct CIDs.
+    assert f['F0'] - f['F4'] == f['F1'] + f['F2'] + f['F3']
+    assert f['F4'] - f['F6'] == f['F5']
+    stage_labels=['Candidate','Qualified','Released']
+    values=np.array([f['F0'],f['F4'],f['F6']],dtype=float)
+    x=np.arange(3)
+    stage_colors=[LILAC,TEAL,'#69A9A8']
 
     ax=fig.add_subplot(gs[0,0])
     bars=ax.bar(x,values,color=stage_colors,width=.62,edgecolor='white',lw=.7)
@@ -91,9 +94,9 @@ def fig1():
 
     ax=fig.add_subplot(gs[1,1])
     losses=np.maximum(values[:-1]-values[1:],0)
-    loss_labels=['CID\nnormalization','Quality\nadjudication','Final CID\nselection']
-    bars=ax.bar(np.arange(3),losses,color=['#B9A9CC',CORAL,GOLD],width=.58,edgecolor='white',lw=.7)
-    ax.set_xticks(np.arange(3),loss_labels); ax.set_ylabel('Reduction in records')
+    loss_labels=['Quality\nadjudication','Qualified\ndeduplication']
+    bars=ax.bar(np.arange(2),losses,color=[CORAL,GOLD],width=.58,edgecolor='white',lw=.7)
+    ax.set_xticks(np.arange(2),loss_labels); ax.set_ylabel('Reduction in records')
     ax.set_ylim(0,max(losses)*1.23); panel(ax,'d','Stage-to-stage reduction')
     for b,v in zip(bars,losses):
         ax.text(b.get_x()+b.get_width()/2,v+55,f'−{int(v):,}',ha='center',va='bottom',
