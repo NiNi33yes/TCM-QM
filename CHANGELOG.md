@@ -2,6 +2,24 @@
 
 All notable changes to the public TCM-QM processing and validation code are documented here.
 
+## v1.1.2 — 2026-09-12
+
+### Added
+
+- Added the complete TCM-QM Atlas source under `website/`, including searchable compound and herb interfaces, server routes, molecular detail pages, 2D/3D viewers, the evidence-aware graph explorer, static XYZ structures, machine-readable download surfaces, data-generation utilities and regression tests.
+- Documented the Node.js 22.13.0-or-newer build and validation workflow.
+
+### Validation
+
+- ESLint completed successfully under Node.js 24.14.0.
+- The production web build completed successfully.
+- Five rendered-page/API regression tests and six Python data-builder tests passed.
+
+### Scope
+
+- No molecular record, quantum-chemical value, XYZ coordinate, TCMSP provenance record or herb–CID edge was changed.
+- Existing tags remain immutable; this version supersedes `v1.1.1` only as the complete software-and-website source archive.
+
 ## v1.1.1 — 2026-09-12
 
 ### Corrected

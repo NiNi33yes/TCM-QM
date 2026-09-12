@@ -1,6 +1,6 @@
 # TCM-QM code
 
-Version 1.1.1 contains the parsing, reconstruction, provenance-audit, validation, figure-generation and machine-learning utilities used for the provenance-corrected TCM-QM data release. Version 1.1.1 corrects the selection-count visualization and does not change the molecular dataset.
+Version 1.1.2 contains the parsing, reconstruction, provenance-audit, validation, figure-generation and machine-learning utilities used for the provenance-corrected TCM-QM data release, together with the complete TCM-QM Atlas website source. Version 1.1.2 does not change the molecular dataset.
 
 The corresponding data release contains 3,196 PubChem-indexed molecular records calculated at the B3LYP-D3BJ/def2-TZVP level with ORCA 6.0.1 or 6.1.1. The code is licensed under the MIT License. ORCA binaries and third-party datasets are not redistributed by this repository.
 
@@ -73,5 +73,6 @@ Exact reconstruction requires the inputs named in `REBUILD_PROTOCOL.md`, includi
 - `v1.0.0` corresponds to the initial public code archive.
 - `v1.1.0` corresponds to the provenance-corrected data-processing and validation code described here.
 - `v1.1.1` corrects Figure 1 so that connected stages all use calculation-record counts (6,948 to 4,012 to 3,196); it makes no change to the released molecular records or provenance edges.
+- `v1.1.2` adds the complete, tested TCM-QM Atlas website source and its static research-data surfaces; it makes no change to the released molecular records or provenance edges.
 
 Use the immutable tagged release or its archived software DOI in reproducible work rather than the moving `main` branch.
